@@ -126,33 +126,37 @@ def hogwarts_by_house(filename):
 #       #parsing the data
         person_info = line.split('|')
 #         # print(person_info)
-        #print(person_info)
+        cohort = person_info[4]
+        new_cohort = cohort.rstrip()
+        
+        #print(new_cohort)
         
         house_name = person_info[2]
 
-        if house_name == "dumbledores_army":
-            blanks.append(person_info[1])
+        if house_name == "Dumbledore's Army":
+            dumbledores_army.append(person_info[1])
         if house_name == "Gryffindor":
-            winter_16.append(person_info[1])
+            gryffindor.append(person_info[1])
         if house_name == "Hufflepuff":
-            spring_16.append(person_info[1])
+            hufflepuff.append(person_info[1])
         if house_name == "Ravenclaw":
-            summer_16.append(person_info[1])
+            ravenclaw.append(person_info[1])
         if house_name == "Slytherin":
-            fall_15.append(person_info[1])
-        if house_name == "G":
+            slytherin.append(person_info[1])
+        if new_cohort == "G":
             ghosts.append(person_info[1])
-        if house_name == "I":
+        if new_cohort == "I":
             instructors.append(person_info[1])
 
-    gryffindor = gryffindor.sort()
-    hufflepuff = hufflepuff.sort()
-    ravenclaw = ravenclaw.sort()
-    slytherin = slytherin.sort()
-    ghosts = ghosts.sort()
-    instructors = instructors.sort()
+    gryffindor = sorted(gryffindor)
+    hufflepuff = sorted(hufflepuff)
+    ravenclaw = sorted(ravenclaw)
+    slytherin = sorted(slytherin)
+    ghosts = sorted(ghosts)
+    instructors = sorted(instructors)
+    dumbledores_army = sorted(dumbledores_army)
 
-    all_hogwarts = [gryffindor, hufflepuff, ravenclaw, slytherin, ghosts, instructors]
+    all_hogwarts = [dumbledores_army, gryffindor, hufflepuff, ravenclaw, slytherin, ghosts, instructors]
 
     return all_hogwarts
 
