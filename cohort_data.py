@@ -117,6 +117,43 @@ def hogwarts_by_house(filename):
 
     # Code goes here
 
+    house_data = open(filename)
+
+
+    for line in house_data:
+        #cleaning white space
+        person_info = line.rstrip()
+#       #parsing the data
+        person_info = line.split('|')
+#         # print(person_info)
+        #print(person_info)
+        
+        house_name = person_info[2]
+
+        if house_name == "dumbledores_army":
+            blanks.append(person_info[1])
+        if house_name == "Gryffindor":
+            winter_16.append(person_info[1])
+        if house_name == "Hufflepuff":
+            spring_16.append(person_info[1])
+        if house_name == "Ravenclaw":
+            summer_16.append(person_info[1])
+        if house_name == "Slytherin":
+            fall_15.append(person_info[1])
+        if house_name == "G":
+            ghosts.append(person_info[1])
+        if house_name == "I":
+            instructors.append(person_info[1])
+
+    gryffindor = gryffindor.sort()
+    hufflepuff = hufflepuff.sort()
+    ravenclaw = ravenclaw.sort()
+    slytherin = slytherin.sort()
+    ghosts = ghosts.sort()
+    instructors = instructors.sort()
+
+    all_hogwarts = [gryffindor, hufflepuff, ravenclaw, slytherin, ghosts, instructors]
+
     return all_hogwarts
 
 
